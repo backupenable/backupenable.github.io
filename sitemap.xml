@@ -2,16 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://backupenable.github.io/en/sitemap.xml</loc>
+    <loc>https://backupenable.github.io/zh-cn/sitemap.xml</loc>
     
       <lastmod>2024-12-02T10:12:22+08:00</lastmod>
     
   </sitemap>
   
   <sitemap>
-    <loc>https://backupenable.github.io/zh-cn/sitemap.xml</loc>
-    
-      <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <loc>https://backupenable.github.io/en/sitemap.xml</loc>
     
   </sitemap>
   
