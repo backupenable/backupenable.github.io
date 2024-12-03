@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://backupenable.github.io/tags/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Tags">
+<link rel="stylesheet" href="/scss/style.min.b8ae80d4a7be511e4570133a283724a867f8d3fe83eead0e0c3265ed778e21d2.css"><meta property='og:title' content="Tags">
 <meta property='og:description' content="欢迎来到我的网站">
 <meta property='og:url' content='https://backupenable.github.io/tags/'>
 <meta property='og:site_name' content='66uan99'>
@@ -492,7 +492,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.99ce1801c4bad426a42fc436add4721e149159dbb598636e9578fd59cf778c83.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -504,6 +504,8 @@
         document.head.appendChild(customFont);
     }());
 </script>
+
+
 <script>
     
 const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
@@ -551,6 +553,7 @@ if (screen.width >= 768) {
 	});
 }
 
+
 function initWaifuMouseEvent() {
         const waifu = document.getElementById("waifu");
         let isDown = false;
@@ -596,5 +599,173 @@ function initWaifuMouseEvent() {
         }
     }
 </script>
+
+<style>
+    body {
+      background: url(https://backupenable.github.io/background/back2.jpg) no-repeat center top;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+</style>
+
+
+<script src=https://backupenable.github.io/background/sakura.js></script>
+
+<div id="particles-js"></div>
+
+<script src=https://backupenable.github.io/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', "https://backupenable.github.io/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
+
+
+
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script>
+const staticDir = "";
+const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    lrcType:3,
+    audio: [
+        
+        
+        
+        
+        
+        
+        
+        {
+            
+            name: '我不配',
+            artist: '周杰伦',
+            url: staticDir + '我不配.mp3',
+            cover: staticDir + '周杰伦.jpg',
+            lrc: staticDir + '我不配.lrc',
+        }
+    ],
+    
+    fixed: true,
+});
+</script>
+
+
+
+<script>
+    
+
+    window.onbeforeunload = () => {
+        
+        const playInfo = {
+            index: ap.list.index,
+            currentTime: ap.audio.currentTime,
+            paused: ap.paused
+        };
+        localStorage.setItem("playInfo", JSON.stringify(playInfo));
+    };
+
+    
+
+    window.onload = () => {
+        
+        const playInfo = JSON.parse(localStorage.getItem("playInfo"));
+        if (!playInfo) {
+            return;
+        }
+        
+        ap.list.switch(playInfo.index);
+        
+        setTimeout(() => {
+            
+            ap.seek(playInfo.currentTime);
+            
+            if (!playInfo.paused) {
+                ap.play()
+            }
+        }, 500);
+    };
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+<script>
+	var pjax = new Pjax({
+	  selectors: [
+	    ".main-container"
+	  ]
+	})
+</script>
+
+
+
+<script>
+    pjax._handleResponse = pjax.handleResponse;
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            
+            pjax._handleResponse(responseText, request, href, options);
+        } else {
+            
+        }
+    }
+</script>
+
+
+<script>
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+    })
+</script>
+
+
+
+    
+    <script src=https://backupenable.github.io/js/topbar.min.js></script>
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {
+        
+        topbar.hide();
+    })
+</script>
+
+
+
+
+
+  
     </body>
 </html>
