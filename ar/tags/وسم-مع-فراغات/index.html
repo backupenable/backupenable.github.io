@@ -451,56 +451,78 @@ function initWaifuMouseEvent() {
 <div id="aplayer"></div>
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 
+
 <script>
 
-const staticDir = "/";
-const ap = new APlayer({
-    container: document.getElementById('aplayer'),
-    lrcType:3,
-    audio: [
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fetch('/music_data.json')
+      .then(response => response.json())
+      .then(data => {
         
         
-        
-        
-        
-        
-        
-        {
-            
-            name: '我不配',
-            artist: '周杰伦',
-            url: staticDir + '我不配.mp3',
-            cover: staticDir + '周杰伦.jpg',
-            lrc: staticDir + '我不配.lrc',
-        },
-        {
-            
-            name: '枫',
-            artist: '周杰伦',
-            url: staticDir + '枫.mp3',
-            cover: staticDir + '周杰伦.jpg',
-            lrc: staticDir + '枫.lrc',
-        },
-        {
-            
-            name: '搁浅',
-            artist: '周杰伦',
-            url: staticDir + '搁浅.mp3',
-            cover: staticDir + '周杰伦.jpg',
-            lrc: staticDir + '搁浅.lrc',
-        },
-        {
-            
-            name: '不能说的秘密',
-            artist: '周杰伦',
-            url: staticDir + '不能说的秘密.mp3',
-            cover: staticDir + '周杰伦.jpg',
-            lrc: staticDir + '不能说的秘密.lrc',
-        },
-    ],
-    
-    fixed: true,
-});
+
+        const ap = new APlayer({
+          container: document.getElementById('aplayer'),
+          lrcType: 3,
+          audio: data.map(song => ({
+            name: song.name,
+            artist: song.artist,
+            url: song.url,
+            cover: song.cover,
+            lrc: song.lrc
+          })),
+          fixed: true,
+        });
+      })
+      .catch(error => {
+        console.error('读取 JSON 数据失败:', error);
+      });
 </script>
 
 
