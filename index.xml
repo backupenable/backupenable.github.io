@@ -13,31 +13,34 @@
         <pubDate>Sun, 27 Apr 2025 18:15:36 +0800</pubDate>
         
         <guid>https://backupenable.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%85%A5%E9%97%A8-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%921/</guid>
-        <description>&lt;img src="https://backupenable.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%85%A5%E9%97%A8-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%921/%E5%B9%B3%E6%B3%BD%E5%94%AF.jpg" alt="Featured image of post 机器学习 入门 线性回归(1)" /&gt;&lt;h2 id=&#34;31线性回归&#34;&gt;3.1线性回归
-&lt;/h2&gt;&lt;p&gt;f(x_i) = wx_i + b  使得  f(x_i) \simeq y_i&lt;/p&gt;
-&lt;p&gt;离散属性的处理：若有“序”（order），则连续化；否则，转化为  k  维向量&lt;/p&gt;
-&lt;p&gt;令均方误差最小化，有   (w^&lt;em&gt;, b^&lt;/em&gt;) = \arg\min_{(w, b)} \sum_{i=1}^m (f(x_i) - y_i)^2    = \arg\min_{(w, b)} \sum_{i=1}^m (y_i - wx_i - b)^2&lt;/p&gt;
-&lt;p&gt;对  E(w, b) = \sum_{i=1}^m (y_i - wx_i - b)^2  进行最小二乘参数估计&lt;/p&gt;
-&lt;h2 id=&#34;32最小二乘解&#34;&gt;3.2最小二乘解
-&lt;/h2&gt;&lt;p&gt;E_{(w,b)} = \sum_{i=1}^m (y_i - wx_i - b)^2&lt;/p&gt;
-&lt;p&gt;分别对 w 和 b 求导：&lt;/p&gt;
-&lt;p&gt;\frac{\partial E_{(w,b)}}{\partial w} = 2 \left( w \sum_{i=1}^m x_i^2 - \sum_{i=1}^m (y_i - b)x_i \right)&lt;/p&gt;
-&lt;p&gt;\frac{\partial E_{(w,b)}}{\partial b} = 2 \left( mb \sum_{i=1}^m (y_i - wx_i) \right)&lt;/p&gt;
-&lt;p&gt;令导数为 0，得到闭式(closed-form)解：&lt;/p&gt;
+        <description>&lt;img src="https://backupenable.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%85%A5%E9%97%A8-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%921/%E5%B9%B3%E6%B3%BD%E5%94%AF.jpg" alt="Featured image of post 机器学习 入门 线性回归(1)" /&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&#34;31-线性回归&#34;&gt;3.1 线性回归
+&lt;/h2&gt;$$ f(x_i) = wx_i + b \quad \text{使得} \quad f(x_i) \simeq y_i $$&lt;p&gt;离散属性的处理：若有&amp;quot;序&amp;quot;（order），则连续化；否则，转化为 $k$ 维向量&lt;/p&gt;
+&lt;p&gt;令均方误差最小化，有：&lt;/p&gt;
+$$
+(w^*, b^*) = \arg\min_{(w, b)} \sum_{i=1}^m (f(x_i) - y_i)^2 = \arg\min_{(w, b)} \sum_{i=1}^m (y_i - wx_i - b)^2
+$$$$ E(w, b) = \sum_{i=1}^m (y_i - wx_i - b)^2 $$&lt;p&gt; 进行最小二乘参数估计&lt;/p&gt;
+&lt;h2 id=&#34;32-最小二乘解&#34;&gt;3.2 最小二乘解
+&lt;/h2&gt;$$ E_{(w,b)} = \sum_{i=1}^m (y_i - wx_i - b)^2 $$&lt;p&gt;分别对 $w$ 和 $b$ 求导：&lt;/p&gt;
+$$
+\frac{\partial E_{(w,b)}}{\partial w} = 2 \left( w \sum_{i=1}^m x_i^2 - \sum_{i=1}^m (y_i - b)x_i \right)
+$$$$
+\frac{\partial E_{(w,b)}}{\partial b} = 2 \left( mb - \sum_{i=1}^m (y_i - wx_i) \right)
+$$&lt;p&gt;令导数为 0，得到闭式(closed-form)解：&lt;/p&gt;
 $$
 w = \frac{\sum_{i=1}^m y_i (x_i - \bar{x})}{\sum_{i=1}^m x_i^2 - \frac{1}{m} \left( \sum_{i=1}^m x_i \right)^2} \quad b = \frac{1}{m} \sum_{i=1}^m (y_i - wx_i)
-$$&lt;h2 id=&#34;33多元线性回归&#34;&gt;3.3多元线性回归
+$$&lt;h2 id=&#34;33-多元线性回归&#34;&gt;3.3 多元线性回归
 &lt;/h2&gt;&lt;p&gt;同样采用最小二乘法求解，有&lt;/p&gt;
-&lt;p&gt;w^* = \arg\min_{w} (y - Xw)^T (y - Xw)&lt;/p&gt;
-&lt;p&gt;令 E_w = (y - Xw)^T (y - Xw)，对 w 求导：&lt;/p&gt;
-&lt;p&gt;\frac{\partial E_w}{\partial w} = 2X^T (Xw - y)&lt;/p&gt;
-&lt;p&gt;令其为零可得 w&lt;/p&gt;
+$$ w^* = \arg\min_{w} (y - Xw)^T (y - Xw) $$$$ E_w = (y - Xw)^T (y - Xw) $$&lt;p&gt;，对 $w$ 求导：&lt;/p&gt;
+$$
+\frac{\partial E_w}{\partial w} = 2X^T (Xw - y)
+$$&lt;p&gt;令其为零可得 $w$&lt;/p&gt;
 &lt;p&gt;然而，麻烦来了：涉及矩阵求逆！&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;若 X^T X 满秩或正定，则 w^* = (X^T X)^{-1} X^T y&lt;/li&gt;
-&lt;li&gt;若 X^T X 不满秩，则可解出多个 w&lt;/li&gt;
+&lt;li&gt;若 $X^T X$ 满秩或正定，则 $$ w^* = (X^T X)^{-1} X^T y $$&lt;/li&gt;
+&lt;li&gt;若 $X^T X$ 不满秩，则可解出多个 $w$&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;若可解出多个解,可以引入正则化得到唯一解&lt;/p&gt;
+&lt;p&gt;若可解出多个解，可以引入正则化得到唯一解&lt;/p&gt;
 </description>
         </item>
         <item>

@@ -293,9 +293,9 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#31线性回归">3.1线性回归</a></li>
-    <li><a href="#32最小二乘解">3.2最小二乘解</a></li>
-    <li><a href="#33多元线性回归">3.3多元线性回归</a></li>
+    <li><a href="#31-线性回归">3.1 线性回归</a></li>
+    <li><a href="#32-最小二乘解">3.2 最小二乘解</a></li>
+    <li><a href="#33-多元线性回归">3.3 多元线性回归</a></li>
   </ol>
 </nav>
         </div>
@@ -395,31 +395,34 @@
     <section class="article-content">
     
     
-    <h2 id="31线性回归">3.1线性回归
-</h2><p>f(x_i) = wx_i + b  使得  f(x_i) \simeq y_i</p>
-<p>离散属性的处理：若有“序”（order），则连续化；否则，转化为  k  维向量</p>
-<p>令均方误差最小化，有   (w^<em>, b^</em>) = \arg\min_{(w, b)} \sum_{i=1}^m (f(x_i) - y_i)^2    = \arg\min_{(w, b)} \sum_{i=1}^m (y_i - wx_i - b)^2</p>
-<p>对  E(w, b) = \sum_{i=1}^m (y_i - wx_i - b)^2  进行最小二乘参数估计</p>
-<h2 id="32最小二乘解">3.2最小二乘解
-</h2><p>E_{(w,b)} = \sum_{i=1}^m (y_i - wx_i - b)^2</p>
-<p>分别对 w 和 b 求导：</p>
-<p>\frac{\partial E_{(w,b)}}{\partial w} = 2 \left( w \sum_{i=1}^m x_i^2 - \sum_{i=1}^m (y_i - b)x_i \right)</p>
-<p>\frac{\partial E_{(w,b)}}{\partial b} = 2 \left( mb \sum_{i=1}^m (y_i - wx_i) \right)</p>
-<p>令导数为 0，得到闭式(closed-form)解：</p>
+    <p>[TOC]</p>
+<h2 id="31-线性回归">3.1 线性回归
+</h2>$$ f(x_i) = wx_i + b \quad \text{使得} \quad f(x_i) \simeq y_i $$<p>离散属性的处理：若有&quot;序&quot;（order），则连续化；否则，转化为 $k$ 维向量</p>
+<p>令均方误差最小化，有：</p>
+$$
+(w^*, b^*) = \arg\min_{(w, b)} \sum_{i=1}^m (f(x_i) - y_i)^2 = \arg\min_{(w, b)} \sum_{i=1}^m (y_i - wx_i - b)^2
+$$$$ E(w, b) = \sum_{i=1}^m (y_i - wx_i - b)^2 $$<p> 进行最小二乘参数估计</p>
+<h2 id="32-最小二乘解">3.2 最小二乘解
+</h2>$$ E_{(w,b)} = \sum_{i=1}^m (y_i - wx_i - b)^2 $$<p>分别对 $w$ 和 $b$ 求导：</p>
+$$
+\frac{\partial E_{(w,b)}}{\partial w} = 2 \left( w \sum_{i=1}^m x_i^2 - \sum_{i=1}^m (y_i - b)x_i \right)
+$$$$
+\frac{\partial E_{(w,b)}}{\partial b} = 2 \left( mb - \sum_{i=1}^m (y_i - wx_i) \right)
+$$<p>令导数为 0，得到闭式(closed-form)解：</p>
 $$
 w = \frac{\sum_{i=1}^m y_i (x_i - \bar{x})}{\sum_{i=1}^m x_i^2 - \frac{1}{m} \left( \sum_{i=1}^m x_i \right)^2} \quad b = \frac{1}{m} \sum_{i=1}^m (y_i - wx_i)
-$$<h2 id="33多元线性回归">3.3多元线性回归
+$$<h2 id="33-多元线性回归">3.3 多元线性回归
 </h2><p>同样采用最小二乘法求解，有</p>
-<p>w^* = \arg\min_{w} (y - Xw)^T (y - Xw)</p>
-<p>令 E_w = (y - Xw)^T (y - Xw)，对 w 求导：</p>
-<p>\frac{\partial E_w}{\partial w} = 2X^T (Xw - y)</p>
-<p>令其为零可得 w</p>
+$$ w^* = \arg\min_{w} (y - Xw)^T (y - Xw) $$$$ E_w = (y - Xw)^T (y - Xw) $$<p>，对 $w$ 求导：</p>
+$$
+\frac{\partial E_w}{\partial w} = 2X^T (Xw - y)
+$$<p>令其为零可得 $w$</p>
 <p>然而，麻烦来了：涉及矩阵求逆！</p>
 <ul>
-<li>若 X^T X 满秩或正定，则 w^* = (X^T X)^{-1} X^T y</li>
-<li>若 X^T X 不满秩，则可解出多个 w</li>
+<li>若 $X^T X$ 满秩或正定，则 $$ w^* = (X^T X)^{-1} X^T y $$</li>
+<li>若 $X^T X$ 不满秩，则可解出多个 $w$</li>
 </ul>
-<p>若可解出多个解,可以引入正则化得到唯一解</p>
+<p>若可解出多个解，可以引入正则化得到唯一解</p>
 
 </section>
 
@@ -442,6 +445,30 @@ $$<h2 id="33多元线性回归">3.3多元线性回归
     </footer>
 
 
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
     
 </article>
 
