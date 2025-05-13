@@ -30,6 +30,7 @@
         });
     });
 </script>
+<div class="math-katex"></div>
 
     <link rel="shortcut icon" href="/flower.ico" />
 
@@ -50,6 +51,7 @@
         });
     });
 </script>
+<div class="math-katex"></div>
         
     </head>
     <body class="
@@ -504,6 +506,7 @@ $$<p>令其为零可得 $w$</p>
             ignoredClasses: ["gist"]
         });})
 </script>
+<div class="math-katex"></div>
     
 </article>
 
@@ -723,6 +726,7 @@ $$<p>令其为零可得 $w$</p>
         });
     });
 </script>
+<div class="math-katex"></div>
 
 
 <script>
@@ -966,7 +970,6 @@ fetch('/music_data.json')
     };
 </script>
 
-
 <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
 <script>
 	var pjax = new Pjax({
@@ -974,7 +977,7 @@ fetch('/music_data.json')
 	    ".main-container"
 	  ]
 	})
-</script>
+</script> 
 
 
 
@@ -1027,6 +1030,43 @@ fetch('/music_data.json')
         topbar.hide();
     })
 </script>
+
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
 
 
 
