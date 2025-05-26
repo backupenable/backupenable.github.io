@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://backupenable.github.io/</loc>
-    <lastmod>2025-05-22T21:15:36+08:00</lastmod>
+    <lastmod>2025-05-26T22:05:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -21,7 +21,7 @@
                 />
   </url><url>
     <loc>https://backupenable.github.io/categories/</loc>
-    <lastmod>2025-05-22T21:15:36+08:00</lastmod>
+    <lastmod>2025-05-26T22:05:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -38,8 +38,11 @@
                 href="https://backupenable.github.io/categories/"
                 />
   </url><url>
+    <loc>https://backupenable.github.io/categories/np%E9%9A%BE/</loc>
+    <lastmod>2025-05-26T22:05:36+08:00</lastmod>
+  </url><url>
     <loc>https://backupenable.github.io/post/</loc>
-    <lastmod>2025-05-22T21:15:36+08:00</lastmod>
+    <lastmod>2025-05-26T22:05:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="ar"
@@ -50,6 +53,12 @@
                 hreflang="zh-cn"
                 href="https://backupenable.github.io/post/"
                 />
+  </url><url>
+    <loc>https://backupenable.github.io/categories/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
+    <lastmod>2025-05-26T22:05:36+08:00</lastmod>
+  </url><url>
+    <loc>https://backupenable.github.io/p/%E7%BB%8F%E5%85%B8np%E9%9A%BE%E9%97%AE%E9%A2%98%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2025-05-26T22:05:36+08:00</lastmod>
   </url><url>
     <loc>https://backupenable.github.io/categories/python/</loc>
     <lastmod>2025-05-22T21:15:36+08:00</lastmod>
